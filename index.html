@@ -24,13 +24,18 @@
             <span class="logo-text">SORA</span>
         </div>
         <div class="nav-links" id="navLinks">
-            <a href="#home" class="nav-link active" data-section="home">หน้าแรก</a>
-            <a href="#about" class="nav-link" data-section="about">เกี่ยวกับ</a>
-            <a href="#skills" class="nav-link" data-section="skills">ทักษะ</a>
-            <a href="#social" class="nav-link" data-section="social">โซเชียล</a>
-            <a href="#contact" class="nav-link" data-section="contact">ติดต่อ</a>
+            <a href="#home" class="nav-link active" data-section="home" data-th="หน้าแรก" data-en="Home">หน้าแรก</a>
+            <a href="#about" class="nav-link" data-section="about" data-th="เกี่ยวกับ" data-en="About">เกี่ยวกับ</a>
+            <a href="#skills" class="nav-link" data-section="skills" data-th="ทักษะ" data-en="Skills">ทักษะ</a>
+            <a href="#social" class="nav-link" data-section="social" data-th="โซเชียล" data-en="Social">โซเชียล</a>
+            <a href="#contact" class="nav-link" data-section="contact" data-th="ติดต่อ" data-en="Contact">ติดต่อ</a>
         </div>
         <div class="nav-actions">
+            <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+                <span class="lang-active">TH</span>
+                <span class="lang-divider">/</span>
+                <span class="lang-inactive">EN</span>
+            </button>
             <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
                 <span class="theme-icon moon">🌙</span>
                 <span class="theme-icon sun">☀️</span>
@@ -46,11 +51,11 @@
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay" id="mobileMenuOverlay">
         <div class="mobile-menu">
-            <a href="#home" class="mobile-link" data-section="home">หน้าแรก</a>
-            <a href="#about" class="mobile-link" data-section="about">เกี่ยวกับ</a>
-            <a href="#skills" class="mobile-link" data-section="skills">ทักษะ</a>
-            <a href="#social" class="mobile-link" data-section="social">โซเชียล</a>
-            <a href="#contact" class="mobile-link" data-section="contact">ติดต่อ</a>
+            <a href="#home" class="mobile-link" data-section="home" data-th="หน้าแรก" data-en="Home">หน้าแรก</a>
+            <a href="#about" class="mobile-link" data-section="about" data-th="เกี่ยวกับ" data-en="About">เกี่ยวกับ</a>
+            <a href="#skills" class="mobile-link" data-section="skills" data-th="ทักษะ" data-en="Skills">ทักษะ</a>
+            <a href="#social" class="mobile-link" data-section="social" data-th="โซเชียล" data-en="Social">โซเชียล</a>
+            <a href="#contact" class="mobile-link" data-section="contact" data-th="ติดต่อ" data-en="Contact">ติดต่อ</a>
         </div>
     </div>
 
@@ -70,19 +75,19 @@
             <div class="hero-tags">
                 <span class="tag">
                     <span class="tag-icon">🎮</span>
-                    Content Creator
+                    <span data-th="Content Creator" data-en="Content Creator">Content Creator</span>
                 </span>
                 <span class="tag">
                     <span class="tag-icon">💻</span>
-                    Coding Enthusiast
+                    <span data-th="Coding Enthusiast" data-en="Coding Enthusiast">Coding Enthusiast</span>
                 </span>
             </div>
             <div class="hero-buttons">
                 <a href="#about" class="btn btn-primary">
-                    เรียนรู้เพิ่มเติม
+                    <span data-th="เรียนรู้เพิ่มเติม" data-en="Learn More">เรียนรู้เพิ่มเติม</span>
                     <span class="btn-arrow">→</span>
                 </a>
-                <a href="#contact" class="btn btn-outline">ติดต่อ</a>
+                <a href="#contact" class="btn btn-outline" data-th="ติดต่อ" data-en="Contact">ติดต่อ</a>
             </div>
 
             <!-- Character Card -->
@@ -113,7 +118,7 @@
     <section class="section about-section" id="about">
         <div class="section-container">
             <div class="section-header">
-                <span class="section-tag">✦ เกี่ยวกับฉัน</span>
+                <span class="section-tag" data-th="✦ เกี่ยวกับฉัน" data-en="✦ About Me">✦ เกี่ยวกับฉัน</span>
                 <h2 class="section-title">Who is Sora?</h2>
             </div>
             <div class="about-grid">
@@ -127,13 +132,15 @@
                 </div>
                 <div class="about-text-col">
                     <div class="about-text-card">
-                        <h3 class="about-greeting">สวัสดี! ฉันชื่อ <span class="highlight">Sora Tempest</span> 👋</h3>
-                        <p class="about-description">
+                        <h3 class="about-greeting">
+                            <span data-th="สวัสดี! ฉันชื่อ " data-en="Hi! I'm ">สวัสดี! ฉันชื่อ </span><span class="highlight">Sora Tempest</span> 👋
+                        </h3>
+                        <p class="about-description" data-th="ฉันเป็น Content Creator ที่หลงใหลในการสร้างคอนเทนต์สนุกๆ และมีความสนใจในการเขียนโค้ดอีกด้วย! ชอบทำ live stream พูดคุยกับทุกคน สร้างสรรค์ผลงานใหม่ๆ อยู่เสมอ" data-en="I'm a Content Creator passionate about making fun content and also love coding! I enjoy live streaming, chatting with everyone, and always creating something new.">
                             ฉันเป็น Content Creator ที่หลงใหลในการสร้างคอนเทนต์สนุกๆ 
                             และมีความสนใจในการเขียนโค้ดอีกด้วย! ชอบทำ live stream 
                             พูดคุยกับทุกคน สร้างสรรค์ผลงานใหม่ๆ อยู่เสมอ
                         </p>
-                        <p class="about-description">
+                        <p class="about-description" data-th="ไม่ว่าจะเป็นการทำวิดีโอบน TikTok, YouTube หรือแชร์ช่วงเวลาดีๆ บน Instagram ฉันพร้อมที่จะมอบความบันเทิงให้ทุกคนเสมอ ✨" data-en="Whether it's making videos on TikTok, YouTube, or sharing great moments on Instagram — I'm always ready to bring entertainment to everyone. ✨">
                             ไม่ว่าจะเป็นการทำวิดีโอบน TikTok, YouTube หรือแชร์ช่วงเวลาดีๆ 
                             บน Instagram ฉันพร้อมที่จะมอบความบันเทิงให้ทุกคนเสมอ ✨
                         </p>
@@ -141,22 +148,22 @@
                             <div class="stat-item">
                                 <span class="stat-icon">🎬</span>
                                 <div class="stat-info">
-                                    <span class="stat-label">Platform</span>
+                                    <span class="stat-label" data-th="Platform" data-en="Platform">Platform</span>
                                     <span class="stat-value">Multi-Platform</span>
                                 </div>
                             </div>
                             <div class="stat-item">
                                 <span class="stat-icon">💜</span>
                                 <div class="stat-info">
-                                    <span class="stat-label">สไตล์</span>
+                                    <span class="stat-label" data-th="สไตล์" data-en="Style">สไตล์</span>
                                     <span class="stat-value">Creative & Fun</span>
                                 </div>
                             </div>
                             <div class="stat-item">
                                 <span class="stat-icon">⚡</span>
                                 <div class="stat-info">
-                                    <span class="stat-label">สถานะ</span>
-                                    <span class="stat-value">Active Creator</span>
+                                    <span class="stat-label" data-th="สถานะ" data-en="Status">สถานะ</span>
+                                    <span class="stat-value" data-th="Active Creator" data-en="Active Creator">Active Creator</span>
                                 </div>
                             </div>
                         </div>
@@ -170,7 +177,7 @@
     <section class="section skills-section" id="skills">
         <div class="section-container">
             <div class="section-header">
-                <span class="section-tag">✦ ทักษะ</span>
+                <span class="section-tag" data-th="✦ ทักษะ" data-en="✦ Skills">✦ ทักษะ</span>
                 <h2 class="section-title">What I Do</h2>
             </div>
             <div class="skills-grid">
@@ -179,7 +186,7 @@
                         <span class="skill-icon">🎥</span>
                     </div>
                     <h3 class="skill-name">Content Creation</h3>
-                    <p class="skill-desc">สร้างสรรค์คอนเทนต์สนุกๆ บนหลากหลายแพลตฟอร์ม ทั้ง TikTok, YouTube และ Instagram</p>
+                    <p class="skill-desc" data-th="สร้างสรรค์คอนเทนต์สนุกๆ บนหลากหลายแพลตฟอร์ม ทั้ง TikTok, YouTube และ Instagram" data-en="Creating fun and engaging content across multiple platforms including TikTok, YouTube, and Instagram.">สร้างสรรค์คอนเทนต์สนุกๆ บนหลากหลายแพลตฟอร์ม ทั้ง TikTok, YouTube และ Instagram</p>
                     <div class="skill-bar">
                         <div class="skill-progress" data-progress="90"></div>
                     </div>
@@ -189,7 +196,7 @@
                         <span class="skill-icon">🎮</span>
                     </div>
                     <h3 class="skill-name">Live Streaming</h3>
-                    <p class="skill-desc">ไลฟ์สตรีมพูดคุยกับทุกคน เล่นเกม และทำกิจกรรมสนุกๆ ร่วมกัน</p>
+                    <p class="skill-desc" data-th="ไลฟ์สตรีมพูดคุยกับทุกคน เล่นเกม และทำกิจกรรมสนุกๆ ร่วมกัน" data-en="Live streaming to chat with everyone, play games, and do fun activities together.">ไลฟ์สตรีมพูดคุยกับทุกคน เล่นเกม และทำกิจกรรมสนุกๆ ร่วมกัน</p>
                     <div class="skill-bar">
                         <div class="skill-progress" data-progress="85"></div>
                     </div>
@@ -199,7 +206,7 @@
                         <span class="skill-icon">💻</span>
                     </div>
                     <h3 class="skill-name">Coding</h3>
-                    <p class="skill-desc">โค้ดได้นิดหน่อย ชอบเรียนรู้เทคโนโลยีใหม่ๆ และทดลองสร้างโปรเจกต์เล็กๆ</p>
+                    <p class="skill-desc" data-th="โค้ดได้นิดหน่อย ชอบเรียนรู้เทคโนโลยีใหม่ๆ และทดลองสร้างโปรเจกต์เล็กๆ" data-en="Knowing a bit of coding, always eager to learn new technologies and experiment with small projects.">โค้ดได้นิดหน่อย ชอบเรียนรู้เทคโนโลยีใหม่ๆ และทดลองสร้างโปรเจกต์เล็กๆ</p>
                     <div class="skill-bar">
                         <div class="skill-progress" data-progress="45"></div>
                     </div>
@@ -209,7 +216,7 @@
                         <span class="skill-icon">🎨</span>
                     </div>
                     <h3 class="skill-name">Creative Design</h3>
-                    <p class="skill-desc">ออกแบบกราฟิก ภาพปก และสื่อต่างๆ สำหรับคอนเทนต์ของตัวเอง</p>
+                    <p class="skill-desc" data-th="ออกแบบกราฟิก ภาพปก และสื่อต่างๆ สำหรับคอนเทนต์ของตัวเอง" data-en="Designing graphics, thumbnails, and visual media for my own content.">ออกแบบกราฟิก ภาพปก และสื่อต่างๆ สำหรับคอนเทนต์ของตัวเอง</p>
                     <div class="skill-bar">
                         <div class="skill-progress" data-progress="70"></div>
                     </div>
@@ -222,7 +229,7 @@
     <section class="section social-section" id="social">
         <div class="section-container">
             <div class="section-header">
-                <span class="section-tag">✦ โซเชียลมีเดีย</span>
+                <span class="section-tag" data-th="✦ โซเชียลมีเดีย" data-en="✦ Social Media">✦ โซเชียลมีเดีย</span>
                 <h2 class="section-title">Follow Me</h2>
             </div>
             <div class="social-grid">
@@ -262,14 +269,15 @@
                     </div>
                     <span class="social-arrow">→</span>
                 </a>
-                <a href="https://tipme.in.th/celestial-sora" target="_blank" rel="noopener noreferrer" class="social-card magnetic-card tipme" data-magnetic id="social-tipme">
+                <a href="javascript:void(0)" class="social-card magnetic-card tipme disabled" data-magnetic id="social-tipme">
                     <div class="social-icon-wrapper">
                         <span class="social-emoji">💸</span>
                     </div>
                     <div class="social-info">
                         <h3 class="social-name">TipMe</h3>
-                        <p class="social-handle">Donate / สนับสนุน</p>
+                        <p class="social-handle" data-th="Donate / สนับสนุน" data-en="Donate / Support">Donate / สนับสนุน</p>
                     </div>
+                    <span class="closed-badge" data-th="🔴 ปิดบริการ" data-en="🔴 Closed">🔴 ปิดบริการ</span>
                     <span class="social-arrow">→</span>
                 </a>
                 <a href="https://easydonate.app/duckchan" target="_blank" rel="noopener noreferrer" class="social-card magnetic-card easydonate" data-magnetic id="social-easydonate">
@@ -278,7 +286,7 @@
                     </div>
                     <div class="social-info">
                         <h3 class="social-name">EasyDonate</h3>
-                        <p class="social-handle">Donate / สนับสนุน</p>
+                        <p class="social-handle" data-th="Donate / สนับสนุน" data-en="Donate / Support">Donate / สนับสนุน</p>
                     </div>
                     <span class="social-arrow">→</span>
                 </a>
@@ -290,9 +298,9 @@
                     </div>
                     <div class="social-info">
                         <h3 class="social-name">Discord</h3>
-                        <p class="social-handle">Community Server</p>
+                        <p class="social-handle" data-th="Community Server" data-en="Community Server">Community Server</p>
                     </div>
-                    <span class="dev-badge">🚧 In Development</span>
+                    <span class="dev-badge" data-th="🚧 กำลังพัฒนา" data-en="🚧 In Development">🚧 In Development</span>
                     <span class="social-arrow">→</span>
                 </a>
             </div>
@@ -305,12 +313,13 @@
             <div class="contact-card">
                 <div class="contact-glow"></div>
                 <div class="section-header">
-                    <span class="section-tag">✦ ติดต่อ</span>
+                    <span class="section-tag" data-th="✦ ติดต่อ" data-en="✦ Contact">✦ ติดต่อ</span>
                     <h2 class="section-title">Get in Touch</h2>
                 </div>
                 <p class="contact-text">
-                    อยากทำงานร่วมกัน หรือแค่อยากทักทาย? ติดต่อฉันผ่านโซเชียลมีเดียได้เลย!<br>
-                    หรือถ้าอยากสนับสนุน สามารถโดเนทผ่าน TipMe หรือ EasyDonate ได้นะ 💜
+                    <span data-th="อยากทำงานร่วมกัน หรือแค่อยากทักทาย? ติดต่อฉันผ่านโซเชียลมีเดียได้เลย!" data-en="Want to collaborate or just say hi? Reach me through social media!">อยากทำงานร่วมกัน หรือแค่อยากทักทาย? ติดต่อฉันผ่านโซเชียลมีเดียได้เลย!</span>
+                    <br>
+                    <span data-th="หรือถ้าอยากสนับสนุน สามารถโดเนทผ่าน EasyDonate ได้นะ 💜" data-en="If you'd like to support, you can donate via EasyDonate. 💜">หรือถ้าอยากสนับสนุน สามารถโดเนทผ่าน EasyDonate ได้นะ 💜</span>
                 </p>
                 <div class="contact-buttons">
                     <a href="https://www.tiktok.com/@sora.mp6" target="_blank" rel="noopener noreferrer" class="contact-social-btn" id="contact-tiktok">
@@ -327,9 +336,6 @@
                         <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
                             <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                         </svg>
-                    </a>
-                    <a href="https://tipme.in.th/celestial-sora" target="_blank" rel="noopener noreferrer" class="contact-social-btn tipme-btn" id="contact-tipme">
-                        💸
                     </a>
                     <a href="https://easydonate.app/duckchan" target="_blank" rel="noopener noreferrer" class="contact-social-btn easydonate-btn" id="contact-easydonate">
                         🎁
@@ -352,7 +358,7 @@
                 <span class="logo-text">SORA TEMPEST</span>
             </div>
             <p class="footer-text">Made with 💜 by Sora Tempest</p>
-            <p class="footer-copyright">© 2026 Sora Tempest. All rights reserved.</p>
+            <p class="footer-copyright" data-th="© 2026 Sora Tempest. สงวนลิขสิทธิ์" data-en="© 2026 Sora Tempest. All rights reserved.">© 2026 Sora Tempest. All rights reserved.</p>
         </div>
     </footer>
 
