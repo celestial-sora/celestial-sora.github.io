@@ -177,18 +177,6 @@ body {
     font-weight: 600;
 }
 
-[data-theme="light"] .nav-link.active {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.35));
-    color: var(--text-primary);
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
-    box-shadow: 
-        0 4px 15px rgba(0, 0, 0, 0.05),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.75),
-        inset 0 1.5px 1.5px rgba(255, 255, 255, 0.95);
-    font-weight: 600;
-}
-
 .nav-actions {
     display: flex;
     align-items: center;
@@ -200,15 +188,14 @@ body {
     position: relative;
     height: 34px;
     padding: 0 12px;
-    border: var(--glass-border);
+    border: 1px solid var(--border-color);
     border-radius: 50px;
-    background: var(--bg-glass);
-    backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+    background: var(--bg-secondary);
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: 4px;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     font-family: inherit;
     font-size: 12px;
     font-weight: 700;
@@ -218,8 +205,8 @@ body {
 }
 
 .lang-toggle:hover {
-    border-color: var(--accent-primary);
-    box-shadow: var(--shadow-glow);
+    border-color: var(--border-hover);
+    background: var(--bg-tertiary);
 }
 
 .lang-active {
@@ -1003,6 +990,32 @@ body {
     transform: translateX(3px);
 }
 
+/* Closed / Disabled Donation */
+.donation-closed {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.donation-closed .donation-emoji-icon {
+    filter: grayscale(1);
+}
+
+.closed-badge {
+    background: var(--text-muted) !important;
+}
+
+.donation-btn-disabled {
+    background: var(--text-muted) !important;
+    cursor: not-allowed;
+}
+
+.contact-btn-disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
 /* Social Grid Header */
 .social-grid-header {
     text-align: center;
@@ -1193,10 +1206,6 @@ body {
     color: var(--accent-green);
 }
 
-.contact-social-btn.easydonate-btn:hover {
-    transform: translateY(-5px) scale(1.15);
-}
-
 .contact-social-btn.disabled {
     opacity: 0.4;
     cursor: not-allowed;
@@ -1206,7 +1215,7 @@ body {
     transform: none;
     box-shadow: none;
     background: var(--bg-tertiary);
-    border-color: var(--glass-border);
+    border-color: var(--border-color);
     color: var(--text-secondary);
 }
 

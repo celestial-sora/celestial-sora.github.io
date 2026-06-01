@@ -75,8 +75,8 @@
                 </span>
             </div>
             <div class="hero-buttons">
-                <a href="#social" class="btn btn-primary">
-                    สนับสนุน
+                <a href="#donate" class="btn btn-primary">
+                    <span data-th="สนับสนุน" data-en="Support">สนับสนุน</span>
                     <span class="btn-arrow">→</span>
                 </a>
                 <a href="#contact" class="btn btn-outline" data-th="ติดต่อ" data-en="Contact">ติดต่อ</a>
@@ -216,34 +216,33 @@
             </div>
 
             <!-- Donation & Support Hub (High Priority, Above Socials) -->
-            <div class="donation-hub-container reveal">
+            <div class="donation-hub-container reveal" id="donate">
                 <div class="donation-hub-header">
                     <span class="donation-hub-tag">💝 Donate / สนับสนุน</span>
                     <h3 class="donation-hub-title">สนับสนุน Sora Tempest</h3>
                     <p class="donation-hub-subtitle">ร่วมเป็นกำลังใจและสนับสนุนการสร้างสรรค์ผลงานสนุกๆ และโปรเจกต์เจ๋งๆ ผ่านทางช่องทางหลักทั้งสองด้านล่างนี้</p>
                 </div>
                 <div class="donation-cards-wrapper">
-                    <!-- TipMe Card -->
-                    <a href="https://tipme.in.th/duck999" target="_blank" rel="noopener noreferrer" class="donation-main-card tipme-main">
-                        <div class="donation-badge-hot">Popular</div>
+                    <!-- TipMe Card (Closed) -->
+                    <div class="donation-main-card tipme-main donation-closed">
+                        <div class="donation-badge-hot closed-badge">ปิดให้บริการ</div>
                         <div class="donation-card-content">
                             <div class="donation-logo-area">
                                 <span class="donation-emoji-icon">🚀</span>
                                 <div class="donation-brand">
                                     <h4>TipMe</h4>
-                                    <span>โดเนทออกจอไลฟ์สตรีม</span>
+                                    <span>ปิดให้บริการแล้ว</span>
                                 </div>
                             </div>
-                            <p class="donation-desc">สนับสนุนผ่าน TrueMoney, Rabbit Line Pay, เครดิต/เดบิต และ PromptPay พร้อมข้อความขึ้นหน้าจอไลฟ์สตรีมแบบเรียลไทม์</p>
-                            <div class="donation-btn-accent">
-                                <span>โดเนทผ่าน TipMe</span>
-                                <span class="arrow-icon">→</span>
+                            <p class="donation-desc">ช่องทางนี้ปิดให้บริการแล้ว กรุณาใช้ EasyDonate แทน</p>
+                            <div class="donation-btn-accent donation-btn-disabled">
+                                <span>ปิดให้บริการ</span>
                             </div>
                         </div>
-                    </a>
+                    </div>
 
                     <!-- EasyDonate Card -->
-                    <a href="https://easydonate.app/sora" target="_blank" rel="noopener noreferrer" class="donation-main-card easydonate-main">
+                    <a href="https://easydonate.app/duckchan" target="_blank" rel="noopener noreferrer" class="donation-main-card easydonate-main">
                         <div class="donation-badge-hot">Direct</div>
                         <div class="donation-card-content">
                             <div class="donation-logo-area">
@@ -351,10 +350,10 @@
                             <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                         </svg>
                     </a>
-                    <a href="https://tipme.in.th/duck999" target="_blank" rel="noopener noreferrer" class="contact-social-btn tipme-btn" id="contact-tipme" title="TipMe">
+                    <span class="contact-social-btn tipme-btn contact-btn-disabled" id="contact-tipme" title="TipMe (ปิดให้บริการ)">
                         💝
-                    </a>
-                    <a href="https://easydonate.app/sora" target="_blank" rel="noopener noreferrer" class="contact-social-btn easydonate-btn" id="contact-easydonate" title="EasyDonate">
+                    </span>
+                    <a href="https://easydonate.app/duckchan" target="_blank" rel="noopener noreferrer" class="contact-social-btn easydonate-btn" id="contact-easydonate" title="EasyDonate">
                         💳
                     </a>
                     <a href="https://discord.gg/zRAnWfmKGT" target="_blank" rel="noopener noreferrer" class="contact-social-btn" id="contact-discord" title="Discord">
