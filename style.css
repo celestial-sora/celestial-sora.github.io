@@ -32,6 +32,7 @@
 
     --scrollbar-track: #1a1915;
     --scrollbar-thumb: #3a3832;
+    --font-heading: 'Itim', 'Chilanka', cursive, sans-serif;
 }
 
 [data-theme="light"] {
@@ -407,7 +408,7 @@ body {
     font-weight: 900;
     line-height: 1.05;
     letter-spacing: -2px;
-    font-family: Georgia, 'Times New Roman', serif;
+    font-family: var(--font-heading);
 }
 
 .title-line.accent {
@@ -616,7 +617,7 @@ body {
     font-weight: 800;
     letter-spacing: -1px;
     color: var(--text-primary);
-    font-family: Georgia, 'Times New Roman', serif;
+    font-family: var(--font-heading);
 }
 
 /* ===== About Section ===== */
@@ -685,7 +686,7 @@ body {
     font-weight: 700;
     margin-bottom: 20px;
     color: var(--text-primary);
-    font-family: Georgia, 'Times New Roman', serif;
+    font-family: var(--font-heading);
 }
 
 .highlight {
@@ -787,7 +788,7 @@ body {
     font-weight: 700;
     margin-bottom: 10px;
     color: var(--text-primary);
-    font-family: Georgia, 'Times New Roman', serif;
+    font-family: var(--font-heading);
 }
 
 .skill-desc {
@@ -848,7 +849,7 @@ body {
     font-weight: 800;
     margin-bottom: 12px;
     color: var(--text-primary);
-    font-family: Georgia, 'Times New Roman', serif;
+    font-family: var(--font-heading);
 }
 
 .donation-hub-subtitle {
@@ -940,7 +941,7 @@ body {
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 2px;
-    font-family: Georgia, 'Times New Roman', serif;
+    font-family: var(--font-heading);
 }
 
 .donation-brand span {
@@ -1036,7 +1037,7 @@ body {
     font-weight: 700;
     margin-top: 6px;
     color: var(--text-primary);
-    font-family: Georgia, 'Times New Roman', serif;
+    font-family: var(--font-heading);
 }
 
 /* ===== Social Grid ===== */
