@@ -5,6 +5,26 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    // ===== Loading Screen =====
+    const loadingScreen = document.getElementById('loadingScreen');
+
+    if (loadingScreen) {
+        document.body.style.overflow = 'hidden';
+
+        // Letters finish flying in at ~1.45s, star at ~1.9s → trigger exit after a moment
+        setTimeout(() => {
+            loadingScreen.classList.add('done');
+            setTimeout(() => {
+                loadingScreen.classList.add('hidden');
+                document.body.style.overflow = '';
+                loadingScreen.addEventListener('transitionend', () => {
+                    loadingScreen.remove();
+                }, { once: true });
+            }, 500);
+        }, 2400);
+    }
+
+
     // ===== Theme Toggle =====
     const themeToggle = document.getElementById('themeToggle');
     const html = document.documentElement;
