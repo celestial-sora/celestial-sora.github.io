@@ -41,50 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('sora-theme', next);
     });
 
-    // ===== Language Toggle (TH / EN) =====
-    const langToggle = document.getElementById('langToggle');
-    const langActive = langToggle.querySelector('.lang-active');
-    const langInactive = langToggle.querySelector('.lang-inactive');
-
-    let currentLang = localStorage.getItem('sora-lang') || 'th';
-
-    function applyLanguage(lang) {
-        currentLang = lang;
-        localStorage.setItem('sora-lang', lang);
-
-        // Update button label
-        langActive.textContent = lang === 'th' ? 'TH' : 'EN';
-        langInactive.textContent = lang === 'th' ? 'EN' : 'TH';
-
-        // Update html lang attribute
-        document.documentElement.lang = lang === 'th' ? 'th' : 'en';
-
-        // Apply translations — only on elements that are pure text nodes (no child elements)
-        document.querySelectorAll('[data-th], [data-en]').forEach(el => {
-            // Skip elements that have child element nodes (e.g. buttons with icons, headings with spans)
-            const hasChildElements = Array.from(el.childNodes).some(n => n.nodeType === 1);
-            if (hasChildElements) return;
-
-            const text = lang === 'th' ? el.getAttribute('data-th') : el.getAttribute('data-en');
-            if (text) el.textContent = text;
-        });
-    }
-
-    // Load saved language on init
-    applyLanguage(currentLang);
-
-    langToggle.addEventListener('click', () => {
-        const next = currentLang === 'th' ? 'en' : 'th';
-
-        // Animate the button
-        langToggle.style.transform = 'scale(0.85)';
-        setTimeout(() => {
-            langToggle.style.transform = '';
-        }, 200);
-
-        applyLanguage(next);
-    });
-
     // ===== Navigation =====
     const navbar = document.getElementById('navbar');
     const navLinks = document.querySelectorAll('.nav-link');

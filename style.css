@@ -320,52 +320,6 @@ body {
     gap: 8px;
 }
 
-/* Lang Toggle */
-.lang-toggle {
-    position: relative;
-    height: 34px;
-    padding: 0 12px;
-    border: 1px solid var(--border-color);
-    border-radius: 50px;
-    background: var(--bg-secondary);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    transition: all 0.2s ease;
-    font-family: inherit;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    color: var(--text-primary);
-    white-space: nowrap;
-}
-
-.lang-toggle:hover {
-    border-color: var(--border-hover);
-    background: var(--bg-tertiary);
-}
-
-.lang-active {
-    color: var(--text-primary);
-    opacity: 1;
-}
-
-.lang-divider {
-    color: var(--text-muted);
-    opacity: 0.5;
-}
-
-.lang-inactive {
-    color: var(--text-muted);
-    opacity: 0.5;
-    transition: all 0.3s ease;
-}
-
-.lang-toggle:hover .lang-inactive {
-    opacity: 0.8;
-}
-
 /* Theme Toggle */
 
 .theme-toggle {
