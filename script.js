@@ -5,6 +5,8 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     // ===== Loading Screen =====
     const loadingScreen = document.getElementById('loadingScreen');
 
@@ -214,21 +216,63 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ===== Subtle Hero Parallax =====
+    // ===== Hero Immersive Background: Floating Petals =====
+    const heroPetals = document.getElementById('heroPetals');
+
+    if (heroPetals && !prefersReducedMotion) {
+        const petalCount = window.innerWidth < 640 ? 8 : 16;
+
+        for (let i = 0; i < petalCount; i++) {
+            const petal = document.createElement('span');
+            petal.className = 'petal';
+
+            const size = 6 + Math.random() * 8;          // 6–14px
+            const left = Math.random() * 100;             // 0–100%
+            const duration = 11 + Math.random() * 9;      // 11–20s
+            const delay = Math.random() * -18;             // start mid-fall
+            const drift = Math.round(Math.random() * 120 - 60); // -60–60px
+
+            petal.style.left = `${left}%`;
+            petal.style.width = `${size}px`;
+            petal.style.height = `${size}px`;
+            petal.style.animationDuration = `${duration}s`;
+            petal.style.animationDelay = `${delay}s`;
+            petal.style.setProperty('--drift', `${drift}px`);
+
+            heroPetals.appendChild(petal);
+        }
+    }
+
+    // ===== Hero Parallax (background layer + content) =====
     const heroContent = document.querySelector('.hero-content');
+    const heroSection = document.querySelector('.hero');
+    const heroBgLayer = document.getElementById('heroBgLayer');
+    let heroTicking = false;
+
+    function updateHeroParallax() {
+        if (!heroSection) { heroTicking = false; return; }
+
+        const scrolled = window.pageYOffset;
+        const heroHeight = heroSection.offsetHeight;
+
+        if (scrolled < heroHeight) {
+            if (heroContent) {
+                heroContent.style.transform = `translateY(${scrolled * 0.15}px)`;
+                heroContent.style.opacity = Math.max(1 - (scrolled / heroHeight) * 1.2, 0);
+            }
+            if (heroBgLayer && !prefersReducedMotion) {
+                heroBgLayer.style.transform = `translate3d(0, ${scrolled * 0.12}px, 0)`;
+            }
+        }
+        heroTicking = false;
+    }
 
     window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const hero = document.querySelector('.hero');
-        if (!hero) return;
-        const heroHeight = hero.offsetHeight;
-
-        if (scrolled < heroHeight && heroContent) {
-            const speed = scrolled * 0.15;
-            heroContent.style.transform = `translateY(${speed}px)`;
-            heroContent.style.opacity = 1 - (scrolled / heroHeight) * 1.2;
+        if (!heroTicking) {
+            requestAnimationFrame(updateHeroParallax);
+            heroTicking = true;
         }
-    });
+    }, { passive: true });
 
     // ===== Init =====
     updateActiveSection();

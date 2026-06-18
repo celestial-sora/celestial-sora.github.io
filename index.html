@@ -67,6 +67,31 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
+        <!-- Immersive Background -->
+        <div class="hero-bg" aria-hidden="true">
+            <div class="hero-bg-layer" id="heroBgLayer">
+                <picture>
+                    <source media="(max-width: 640px)" srcset="hero-bg-mobile.webp" type="image/webp">
+                    <source media="(max-width: 640px)" srcset="hero-bg-mobile.jpg" type="image/jpeg">
+                    <source srcset="hero-bg-desktop.webp" type="image/webp">
+                    <img
+                        src="hero-bg-desktop.jpg"
+                        alt=""
+                        class="hero-bg-img"
+                        id="heroBgImg"
+                        width="1544"
+                        height="1018"
+                        loading="eager"
+                        fetchpriority="high"
+                        decoding="async">
+                </picture>
+            </div>
+            <div class="hero-overlay"></div>
+            <div class="hero-glow hero-glow-left"></div>
+            <div class="hero-glow hero-glow-right"></div>
+            <div class="hero-petals" id="heroPetals"></div>
+        </div>
+
         <div class="hero-content">
             <div class="hero-badge">
                 Creator & Vibe Coder
@@ -106,6 +131,11 @@
                 </div>
             </div>
         </div>
+
+        <a href="#about" class="hero-scroll-cue" aria-label="Scroll down">
+            <span class="scroll-cue-text" data-th="เลื่อนลง" data-en="Scroll">เลื่อนลง</span>
+            <span class="scroll-cue-arrow">↓</span>
+        </a>
     </section>
 
     <!-- About Section -->
