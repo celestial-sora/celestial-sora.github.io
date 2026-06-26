@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Active section tracking
     function updateActiveSection() {
-        const sections = ['home', 'about', 'skills', 'social', 'contact'];
+        const sections = ['home', 'about', 'social', 'contact'];
         const scrollPosition = window.scrollY + 200;
 
         sections.forEach(section => {
@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ===== Scroll Reveal Animation =====
     const revealElements = document.querySelectorAll(
-        '.about-image-card, .about-text-card, .skill-card, .social-card, .contact-card, .section-header, .donation-hub-container, .social-grid-header'
+        '.about-image-card, .about-text-card, .social-card, .contact-card, .section-header, .donation-hub-container, .social-grid-header'
     );
 
     revealElements.forEach(el => el.classList.add('reveal'));
@@ -264,27 +264,9 @@ document.addEventListener('DOMContentLoaded', () => {
         rootMargin: '0px 0px -40px 0px'
     });
 
-    revealElements.forEach(el => revealObserver.observe(el));
-
-    // ===== Skill Bar Animation =====
-    const skillBars = document.querySelectorAll('.skill-progress');
-
-    const skillObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const progress = entry.target.getAttribute('data-progress');
-                entry.target.style.width = progress + '%';
-                skillObserver.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.5
-    });
-
-    skillBars.forEach(bar => skillObserver.observe(bar));
 
     // ===== Staggered Reveal for Grids =====
-    const gridContainers = document.querySelectorAll('.skills-grid, .social-grid');
+    const gridContainers = document.querySelectorAll('.social-grid');
 
     gridContainers.forEach(grid => {
         const children = grid.children;
