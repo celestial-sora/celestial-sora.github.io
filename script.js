@@ -263,7 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
         threshold: 0.1,
         rootMargin: '0px 0px -40px 0px'
     });
-
+    revealElements.forEach(el => revealObserver.observe(el));
 
     // ===== Staggered Reveal for Grids =====
     const gridContainers = document.querySelectorAll('.social-grid');
