@@ -7,13 +7,121 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // ===== Loading Screen =====
+    // ===== Loading Screen (Terminal Typewriter) =====
     const loadingScreen = document.getElementById('loadingScreen');
+    const terminalBody = document.getElementById('terminalBody');
 
-    if (loadingScreen) {
+    if (loadingScreen && terminalBody && !prefersReducedMotion) {
         document.body.style.overflow = 'hidden';
 
-        // Letters finish flying in at ~1.45s, star at ~1.9s → trigger exit after a moment
+        // Typewriter effect
+        const lines = [
+            { type: 'prompt', text: '> npx sora --awaken' },
+            { type: 'output', text: 'loading starlight modules... ' },
+            { type: 'output-ok', text: 'ok' },
+            { type: 'ready', text: 'ready..._' }
+        ];
+
+        let currentLineIdx = 0;
+        let currentCharIdx = 0;
+        const typewriterSpeed = 40; // ms per character
+
+        function typeNextChar() {
+            if (currentLineIdx >= lines.length) {
+                // All done, start exit after delay
+                setTimeout(() => {
+                    loadingScreen.classList.add('done');
+                    setTimeout(() => {
+                        loadingScreen.classList.add('hidden');
+                        document.body.style.overflow = '';
+                        loadingScreen.addEventListener('transitionend', () => {
+                            loadingScreen.remove();
+                        }, { once: true });
+                    }, 300);
+                }, 400);
+                return;
+            }
+
+            const line = lines[currentLineIdx];
+            const textToType = line.text;
+
+            // Create or update line element
+            let lineEl = terminalBody.querySelector(`.terminal-line[data-line="${currentLineIdx}"]`);
+            if (!lineEl) {
+                lineEl = document.createElement('div');
+                lineEl.className = 'terminal-line';
+                lineEl.setAttribute('data-line', currentLineIdx);
+                
+                if (line.type === 'prompt') {
+                    lineEl.innerHTML = `<span class="terminal-prompt"></span>`;
+                } else if (line.type === 'output') {
+                    lineEl.innerHTML = `<span class="terminal-text"></span>`;
+                } else if (line.type === 'output-ok') {
+                    lineEl.innerHTML = `<span class="terminal-ok"></span>`;
+                } else if (line.type === 'ready') {
+                    lineEl.innerHTML = `<span class="terminal-text"></span>`;
+                }
+                
+                terminalBody.appendChild(lineEl);
+            }
+
+            const span = lineEl.querySelector('span');
+            
+            if (currentCharIdx < textToType.length) {
+                // Type one character
+                span.textContent += textToType[currentCharIdx];
+                currentCharIdx++;
+                setTimeout(typeNextChar, typewriterSpeed);
+            } else {
+                // Line done
+                if (line.type === 'output-ok') {
+                    // Add cursor to ready line
+                    currentLineIdx++;
+                    currentCharIdx = 0;
+                    setTimeout(typeNextChar, 200);
+                } else if (line.type === 'ready') {
+                    // Add cursor after "ready..."
+                    const cursor = document.createElement('span');
+                    cursor.className = 'cursor';
+                    span.appendChild(cursor);
+                    
+                    // Exit after showing cursor
+                    setTimeout(() => {
+                        loadingScreen.classList.add('done');
+                        setTimeout(() => {
+                            loadingScreen.classList.add('hidden');
+                            document.body.style.overflow = '';
+                            loadingScreen.addEventListener('transitionend', () => {
+                                loadingScreen.remove();
+                            }, { once: true });
+                        }, 300);
+                    }, 800);
+                } else {
+                    // Move to next line
+                    currentLineIdx++;
+                    currentCharIdx = 0;
+                    setTimeout(typeNextChar, 150);
+                }
+            }
+        }
+
+        typeNextChar();
+    } else if (loadingScreen && terminalBody && prefersReducedMotion) {
+        // Reduced motion: show everything at once, quick fade
+        document.body.style.overflow = 'hidden';
+        
+        terminalBody.innerHTML = `
+            <div class="terminal-line">
+                <span class="terminal-prompt">> npx sora --awaken</span>
+            </div>
+            <div class="terminal-line">
+                <span class="terminal-text">loading starlight modules... <span class="terminal-ok">ok</span></span>
+            </div>
+            <div class="terminal-line">
+                <span class="terminal-text">ready...</span>
+            </div>
+        `;
+
         setTimeout(() => {
             loadingScreen.classList.add('done');
             setTimeout(() => {
@@ -22,8 +130,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 loadingScreen.addEventListener('transitionend', () => {
                     loadingScreen.remove();
                 }, { once: true });
-            }, 500);
-        }, 2400);
+            }, 200);
+        }, 600);
+    } else if (loadingScreen) {
+        // Fallback: just fade out
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => {
+            loadingScreen.classList.add('done');
+            setTimeout(() => {
+                loadingScreen.classList.add('hidden');
+                document.body.style.overflow = '';
+                loadingScreen.addEventListener('transitionend', () => {
+                    loadingScreen.remove();
+                }, { once: true });
+            }, 300);
+        }, 1000);
     }
 
 
