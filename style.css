@@ -1108,9 +1108,14 @@ body {
 }
 
 /* ===== Projects Section ===== */
+.projects-section {
+    overflow: hidden;
+}
+
 .projects-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
     max-width: 680px;
     margin: 0 auto;
     gap: 30px;
@@ -1125,6 +1130,9 @@ body {
     display: flex;
     flex-direction: column;
     box-shadow: var(--shadow-sm);
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
 }
 
 .project-card:hover {
@@ -1136,6 +1144,7 @@ body {
 .project-image-wrapper {
     position: relative;
     width: 100%;
+    max-width: 100%;
     height: 320px;
     overflow: hidden;
     background: var(--bg-secondary);
@@ -1861,16 +1870,22 @@ body {
     }
 
     .projects-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 16px;
+        width: 100%;
     }
 
     .project-card {
         border-radius: 20px;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
     }
 
     .project-image-wrapper {
         height: 220px;
+        width: 100%;
+        max-width: 100%;
     }
 
     .project-info {
