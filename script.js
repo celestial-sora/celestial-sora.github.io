@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Active section tracking
     function updateActiveSection() {
-        const sections = ['home', 'about', 'social', 'contact'];
+        const sections = ['home', 'about', 'projects', 'social', 'contact'];
         const scrollPosition = window.scrollY + 200;
 
         sections.forEach(section => {
@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ===== Scroll Reveal Animation =====
     const revealElements = document.querySelectorAll(
-        '.about-image-card, .about-text-card, .social-card, .contact-card, .section-header, .donation-hub-container, .social-grid-header'
+        '.about-image-card, .about-text-card, .project-card, .social-card, .contact-card, .section-header, .donation-hub-container, .social-grid-header'
     );
 
     revealElements.forEach(el => el.classList.add('reveal'));
@@ -266,7 +266,7 @@ document.addEventListener('DOMContentLoaded', () => {
     revealElements.forEach(el => revealObserver.observe(el));
 
     // ===== Staggered Reveal for Grids =====
-    const gridContainers = document.querySelectorAll('.social-grid');
+    const gridContainers = document.querySelectorAll('.projects-grid, .social-grid');
 
     gridContainers.forEach(grid => {
         const children = grid.children;

@@ -1107,7 +1107,133 @@ body {
     color: var(--text-primary);
 }
 
-/* ===== Skills Section ===== */
+/* ===== Projects Section ===== */
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 680px;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+.project-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+}
+
+.project-card:hover {
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-6px);
+}
+
+.project-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+    background: var(--bg-secondary);
+}
+
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.04);
+}
+
+.project-status-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: var(--shadow-md);
+    backdrop-filter: blur(8px);
+}
+
+.project-status-badge.beta {
+    background: rgba(212, 131, 208, 0.15); /* matching --accent-primary */
+    color: var(--accent-primary);
+    border: 1px solid rgba(212, 131, 208, 0.3);
+}
+
+.project-info {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.project-meta {
+    margin-bottom: 12px;
+}
+
+.project-category {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.project-name {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+}
+
+.project-desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+}
+
+.project-tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+}
+
+.tech-tag {
+    padding: 6px 12px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.project-buttons {
+    margin-top: auto;
+}
+
+.project-btn {
+    width: fit-content;
+}
+
 /* ===== Donation & Support Hub ===== */
 .donation-hub-container {
     background: var(--bg-card);
@@ -1732,6 +1858,38 @@ body {
     .about-stats {
         grid-template-columns: 1fr;
         gap: 8px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .project-card {
+        border-radius: 20px;
+    }
+
+    .project-image-wrapper {
+        height: 220px;
+    }
+
+    .project-info {
+        padding: 24px;
+    }
+
+    .project-name {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+
+    .project-desc {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .project-tech-tags {
+        margin-bottom: 20px;
+        gap: 6px;
     }
 
     .donation-cards-wrapper {
