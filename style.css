@@ -1,18 +1,18 @@
 /* ===== CSS Custom Properties & Theme System ===== */
-/* Pre-Dawn Studio — Saturated Dark Cobalt & Frost-Cyan Accent */
+/* Claude.ai Inspired — Calm Minimal Aesthetic */
 
 :root {
-    /* Dark Theme (Default) - Drenched Midnight Cobalt */
-    --bg-primary: oklch(0.18 0.05 241.7);
-    --bg-secondary: oklch(0.20 0.045 241.7);
-    --bg-tertiary: oklch(0.22 0.04 241.7);
-    --bg-card: oklch(0.24 0.04 241.7);
-    --bg-card-hover: oklch(0.28 0.035 241.7);
-    --bg-nav: oklch(0.18 0.05 241.7 / 85%);
+    /* Dark Theme (Default) - Claude.ai Inspired Warm Charcoal */
+    --bg-primary: #1a1915;
+    --bg-secondary: #21201c;
+    --bg-tertiary: #2a2924;
+    --bg-card: #24231f;
+    --bg-card-hover: #2e2d28;
+    --bg-nav: rgba(26, 25, 21, 0.85);
 
-    --text-primary: oklch(0.96 0.01 241.7);
-    --text-secondary: oklch(0.78 0.02 241.7);
-    --text-muted: oklch(0.58 0.02 241.7);
+    --text-primary: #faf9f5;
+    --text-secondary: #b0aea5;
+    --text-muted: #706f6a;
 
     --accent-primary: #d483d0;
     --accent-hover: #df96dc;
@@ -21,18 +21,18 @@
     --accent-blue: #7daad6;
     --accent-blue-hover: #96c2eb;
 
-    --border-color: oklch(0.28 0.04 241.7);
-    --border-hover: oklch(0.36 0.05 241.7);
+    --border-color: #3a3832;
+    --border-hover: #504e46;
 
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.25);
     --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.35);
 
-    --skill-bar-bg: oklch(0.28 0.04 241.7);
+    --skill-bar-bg: #3a3832;
     --skill-bar-fill: var(--accent-primary);
 
-    --scrollbar-track: oklch(0.18 0.05 241.7);
-    --scrollbar-thumb: oklch(0.28 0.04 241.7);
+    --scrollbar-track: #1a1915;
+    --scrollbar-thumb: #3a3832;
     --font-heading: 'Inter', 'Noto Sans Thai', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
