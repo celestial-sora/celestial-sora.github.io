@@ -18,7 +18,8 @@
     --accent-hover: #df96dc;
     --accent-green: oklch(0.86 0.08 195.0); /* Frost cyan indicator accent */
     --accent-green-hover: oklch(0.90 0.09 195.0);
-    --accent-blue: oklch(0.70 0.10 215.0);
+    --accent-blue: #7daad6;
+    --accent-blue-hover: #96c2eb;
 
     --border-color: oklch(0.28 0.04 241.7);
     --border-hover: oklch(0.36 0.05 241.7);
@@ -52,7 +53,8 @@
     --accent-hover: #be6dba;
     --accent-green: oklch(0.45 0.10 195.0); /* Darker frost cyan for light mode readability */
     --accent-green-hover: oklch(0.40 0.09 195.0);
-    --accent-blue: oklch(0.40 0.08 215.0);
+    --accent-blue: #6a9bcc;
+    --accent-blue-hover: #5080b0;
 
     --border-color: oklch(0.85 0.02 241.7);
     --border-hover: oklch(0.75 0.03 241.7);
@@ -1320,7 +1322,7 @@ body {
 }
 
 .easydonate-main .donation-badge-hot {
-    background: var(--accent-green);
+    background: var(--accent-blue);
 }
 
 .donation-card-content {
@@ -1392,12 +1394,20 @@ body {
     background: var(--accent-green);
 }
 
+.donation-btn-accent.blue-btn {
+    background: var(--accent-blue);
+}
+
 .donation-main-card:hover .donation-btn-accent {
     background: var(--accent-hover);
 }
 
 .donation-main-card:hover .donation-btn-accent.secondary-btn {
     background: var(--accent-green-hover);
+}
+
+.donation-main-card:hover .donation-btn-accent.blue-btn {
+    background: var(--accent-blue-hover);
 }
 
 .arrow-icon {
@@ -1594,8 +1604,8 @@ body {
 }
 
 .contact-social-btn.easydonate-btn:hover {
-    border-color: var(--accent-green);
-    color: var(--accent-green);
+    border-color: var(--accent-blue);
+    color: var(--accent-blue);
 }
 
 .contact-social-btn.disabled {
