@@ -1,70 +1,70 @@
 /* ===== CSS Custom Properties & Theme System ===== */
-/* Claude.ai Inspired — Calm Minimal Aesthetic */
+/* Pre-Dawn Studio — Saturated Dark Cobalt & Frost-Cyan Accent */
 
 :root {
-    /* Dark Theme (Default) */
-    --bg-primary: #1a1915;
-    --bg-secondary: #21201c;
-    --bg-tertiary: #2a2924;
-    --bg-card: #24231f;
-    --bg-card-hover: #2e2d28;
-    --bg-nav: rgba(26, 25, 21, 0.97);
+    /* Dark Theme (Default) - Drenched Midnight Cobalt */
+    --bg-primary: oklch(0.18 0.05 241.7);
+    --bg-secondary: oklch(0.20 0.045 241.7);
+    --bg-tertiary: oklch(0.22 0.04 241.7);
+    --bg-card: oklch(0.24 0.04 241.7);
+    --bg-card-hover: oklch(0.28 0.035 241.7);
+    --bg-nav: oklch(0.18 0.05 241.7 / 85%);
 
-    --text-primary: #faf9f5;
-    --text-secondary: #b0aea5;
-    --text-muted: #706f6a;
+    --text-primary: oklch(0.96 0.01 241.7);
+    --text-secondary: oklch(0.78 0.02 241.7);
+    --text-muted: oklch(0.58 0.02 241.7);
 
-    --accent-primary: #d483d0;
-    --accent-hover: #df96dc;
-    --accent-green: #8fa670;
-    --accent-green-hover: #9db57e;
-    --accent-blue: #7daad6;
+    --accent-primary: oklch(0.58 0.13 241.7); /* Cobalt seed anchor */
+    --accent-hover: oklch(0.64 0.14 241.7);
+    --accent-green: oklch(0.86 0.08 195.0); /* Frost cyan indicator accent */
+    --accent-green-hover: oklch(0.90 0.09 195.0);
+    --accent-blue: oklch(0.70 0.10 215.0);
 
-    --border-color: #3a3832;
-    --border-hover: #504e46;
+    --border-color: oklch(0.28 0.04 241.7);
+    --border-hover: oklch(0.36 0.05 241.7);
 
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.25);
     --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.35);
 
-    --skill-bar-bg: #3a3832;
+    --skill-bar-bg: oklch(0.28 0.04 241.7);
     --skill-bar-fill: var(--accent-primary);
 
-    --scrollbar-track: #1a1915;
-    --scrollbar-thumb: #3a3832;
-    --font-heading: 'Itim', 'Chilanka', cursive, sans-serif;
+    --scrollbar-track: oklch(0.18 0.05 241.7);
+    --scrollbar-thumb: oklch(0.28 0.04 241.7);
+    --font-heading: 'Inter', 'Noto Sans Thai', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 [data-theme="light"] {
-    /* Light Theme — Claude.ai Parchment */
-    --bg-primary: #faf9f5;
-    --bg-secondary: #f3f2ee;
-    --bg-tertiary: #e8e6dc;
-    --bg-card: #ffffff;
-    --bg-card-hover: #fdfcfa;
-    --bg-nav: rgba(250, 249, 245, 0.97);
+    /* Light Theme - Ice Cobalt */
+    --bg-primary: oklch(0.96 0.01 241.7);
+    --bg-secondary: oklch(0.92 0.02 241.7);
+    --bg-tertiary: oklch(0.88 0.02 241.7);
+    --bg-card: oklch(0.98 0.005 241.7);
+    --bg-card-hover: oklch(0.95 0.01 241.7);
+    --bg-nav: oklch(0.96 0.01 241.7 / 85%);
 
-    --text-primary: #141413;
-    --text-secondary: #5f5e5a;
-    --text-muted: #9e9d97;
+    --text-primary: oklch(0.18 0.05 241.7);
+    --text-secondary: oklch(0.32 0.04 241.7);
+    --text-muted: oklch(0.48 0.03 241.7);
 
-    --accent-primary: #d483d0;
-    --accent-hover: #be6dba;
-    --accent-green: #788c5d;
-    --accent-green-hover: #6a7d50;
-    --accent-blue: #6a9bcc;
+    --accent-primary: oklch(0.58 0.13 241.7);
+    --accent-hover: oklch(0.50 0.12 241.7);
+    --accent-green: oklch(0.45 0.10 195.0); /* Darker frost cyan for light mode readability */
+    --accent-green-hover: oklch(0.40 0.09 195.0);
+    --accent-blue: oklch(0.40 0.08 215.0);
 
-    --border-color: #e8e6dc;
-    --border-hover: #d4d2c8;
+    --border-color: oklch(0.85 0.02 241.7);
+    --border-hover: oklch(0.75 0.03 241.7);
 
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
     --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.08);
 
-    --skill-bar-bg: #e8e6dc;
+    --skill-bar-bg: oklch(0.85 0.02 241.7);
 
-    --scrollbar-track: #f3f2ee;
-    --scrollbar-thumb: #d4d2c8;
+    --scrollbar-track: oklch(0.92 0.02 241.7);
+    --scrollbar-thumb: oklch(0.75 0.03 241.7);
 }
 /* IF you Read This, You are Femboy! */
 
@@ -549,7 +549,7 @@ body {
     max-height: 480px;
     border-radius: 50%;
     filter: blur(70px);
-    opacity: 0.3;
+    opacity: 0.35;
     pointer-events: none;
     mix-blend-mode: screen;
     animation: hero-glow-pulse 7s ease-in-out infinite;
@@ -558,19 +558,19 @@ body {
 .hero-glow-left {
     top: 4%;
     left: -8%;
-    background: radial-gradient(circle, #ffe9bc, transparent 70%);
+    background: radial-gradient(circle, var(--accent-green), transparent 70%);
 }
 
 .hero-glow-right {
     top: 28%;
     right: -10%;
-    background: radial-gradient(circle, #ffd6f5, transparent 70%);
+    background: radial-gradient(circle, var(--accent-primary), transparent 70%);
     animation-delay: 1.4s;
 }
 
 @keyframes hero-glow-pulse {
-    0%, 100% { opacity: 0.22; transform: scale(1); }
-    50%      { opacity: 0.4; transform: scale(1.1); }
+    0%, 100% { opacity: 0.25; transform: scale(1); }
+    50%      { opacity: 0.45; transform: scale(1.1); }
 }
 
 /* ── Contrast overlay (also blends hero into page bg at the bottom) ── */
@@ -580,15 +580,15 @@ body {
     z-index: 1;
     background:
         linear-gradient(180deg,
-            rgba(16, 12, 22, 0.45) 0%,
-            rgba(16, 12, 22, 0.22) 32%,
-            rgba(14, 10, 20, 0.5) 72%,
+            rgba(15, 10, 34, 0.45) 0%,
+            rgba(15, 10, 34, 0.22) 32%,
+            rgba(15, 10, 34, 0.5) 72%,
             var(--bg-primary) 100%),
         linear-gradient(90deg,
-            rgba(8, 6, 12, 0.32) 0%,
+            rgba(10, 5, 24, 0.32) 0%,
             transparent 28%,
             transparent 72%,
-            rgba(8, 6, 12, 0.32) 100%);
+            rgba(10, 5, 24, 0.32) 100%);
     pointer-events: none;
 }
 
@@ -606,7 +606,7 @@ body {
     top: -8%;
     width: 9px;
     height: 9px;
-    background: linear-gradient(135deg, #f0d9fa, #c294e0);
+    background: linear-gradient(135deg, var(--accent-green), var(--accent-primary));
     border-radius: 0 60% 0 60%;
     animation: petal-fall linear infinite;
     will-change: transform, opacity;
@@ -628,63 +628,66 @@ body {
 
 /* ── Glass styling for content sitting on the photo ── */
 .hero .hero-badge {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.22);
-    color: #f4ecf9;
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.12);
+    color: var(--text-primary);
     backdrop-filter: blur(10px) saturate(140%);
     -webkit-backdrop-filter: blur(10px) saturate(140%);
 }
 
 .hero .title-line {
-    color: #fbf7ff;
-    text-shadow: 0 4px 28px rgba(20, 10, 32, 0.5);
+    color: var(--text-primary);
+    text-shadow: 0 4px 28px rgba(15, 10, 34, 0.5);
 }
 
 .hero .title-line.accent {
-    color: #f0a8ec;
+    color: var(--accent-primary);
 }
 
 .hero .hero-subtitle {
-    color: rgba(255, 255, 255, 0.62);
+    color: var(--text-muted);
 }
 
 .hero .tag {
-    background: rgba(255, 255, 255, 0.07);
-    border-color: rgba(255, 255, 255, 0.2);
-    color: #f1e7f8;
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.12);
+    color: var(--text-primary);
     backdrop-filter: blur(10px) saturate(140%);
     -webkit-backdrop-filter: blur(10px) saturate(140%);
 }
 
 .hero .btn-outline {
-    border-color: rgba(255, 255, 255, 0.35);
-    color: #fbf7ff;
+    border-color: rgba(255, 255, 255, 0.2);
+    color: var(--text-primary);
 }
 
 .hero .btn-outline:hover {
-    border-color: #f0a8ec;
-    color: #f0a8ec;
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
 }
 
 .hero .btn-primary {
-    background: linear-gradient(135deg, #d483d0, #b569d9);
-    box-shadow: 0 8px 24px rgba(180, 90, 200, 0.35);
+    background: var(--accent-primary);
+    box-shadow: none;
 }
 
 .hero .btn-primary:hover {
-    background: linear-gradient(135deg, #df96dc, #c47ee6);
+    background: var(--accent-hover);
+    box-shadow: 0 8px 24px rgba(124, 58, 237, 0.25);
 }
 
 .hero .character-card {
-    background: rgba(255, 255, 255, 0.07);
-    border-color: rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(16px) saturate(150%);
     -webkit-backdrop-filter: blur(16px) saturate(150%);
-    box-shadow: 0 20px 50px rgba(10, 5, 20, 0.4);
+    box-shadow: none;
+    border-radius: 16px;
 }
 
 .hero .character-card:hover {
-    border-color: rgba(255, 255, 255, 0.3);
+    border-color: var(--accent-primary);
+    box-shadow: 0 12px 32px rgba(15, 10, 34, 0.35);
 }
 
 .hero .card-header { color: rgba(255, 255, 255, 0.55); }
@@ -882,7 +885,7 @@ body {
     margin: 0 auto;
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    border-radius: 20px;
+    border-radius: 16px;
     padding: 20px;
     transition: all 0.3s ease;
     animation: fadeInUp 0.8s ease 0.6s forwards;
@@ -910,7 +913,7 @@ body {
     position: relative;
     width: 100%;
     aspect-ratio: 1;
-    border-radius: 14px;
+    border-radius: 12px;
     overflow: hidden;
     margin-bottom: 16px;
 }
@@ -991,11 +994,11 @@ body {
 
 .about-image-card {
     position: relative;
-    border-radius: 20px;
+    border-radius: 16px;
     overflow: hidden;
     border: 1px solid var(--border-color);
     transition: all 0.3s ease;
-    box-shadow: var(--shadow-sm);
+    box-shadow: none;
 }
 
 .about-image-card:hover {
@@ -1038,7 +1041,7 @@ body {
 .about-text-card {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    border-radius: 20px;
+    border-radius: 16px;
     padding: 40px;
 }
 
@@ -1124,7 +1127,7 @@ body {
 .project-card {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    border-radius: 24px;
+    border-radius: 16px;
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     display: flex;
@@ -1231,10 +1234,10 @@ body {
 .donation-hub-container {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    border-radius: 24px;
+    border-radius: 16px;
     padding: 40px;
     margin-bottom: 48px;
-    box-shadow: var(--shadow-sm);
+    box-shadow: none;
 }
 
 .donation-hub-header {
@@ -1286,7 +1289,7 @@ body {
     color: var(--text-primary);
     background: var(--bg-secondary);
     border: 1px solid var(--border-color);
-    border-radius: 18px;
+    border-radius: 12px;
     padding: 28px;
     transition: all 0.2s ease;
     position: relative;
@@ -1442,7 +1445,7 @@ body {
     padding: 20px 24px;
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    border-radius: 16px;
+    border-radius: 12px;
     text-decoration: none;
     color: var(--text-primary);
     transition: all 0.2s ease;
@@ -1539,7 +1542,7 @@ body {
     margin: 0 auto;
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    border-radius: 20px;
+    border-radius: 16px;
     padding: 60px 50px;
     text-align: center;
 }
@@ -1892,7 +1895,7 @@ body {
 
     .donation-hub-container {
         padding: 28px 20px;
-        border-radius: 20px;
+        border-radius: 16px;
         margin-bottom: 32px;
     }
 
@@ -1915,7 +1918,7 @@ body {
 
     .contact-card {
         padding: 40px 24px;
-        border-radius: 20px;
+        border-radius: 16px;
     }
 
     .contact-text {
