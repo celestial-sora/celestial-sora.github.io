@@ -8,8 +8,10 @@
     --bg-tertiary: #2a2924;
     --bg-card: #24231f;
     --bg-card-hover: #2e2d28;
-    --bg-nav: rgba(26, 25, 21, 0.65);
-    --bg-nav-scrolled: rgba(26, 25, 21, 0.85);
+    --bg-nav: rgba(26, 25, 21, 0.35);
+    --bg-nav-scrolled: rgba(26, 25, 21, 0.55);
+    --navbar-border: rgba(255, 255, 255, 0.08);
+    --navbar-border-hover: rgba(255, 255, 255, 0.15);
 
     --text-primary: #faf9f5;
     --text-secondary: #b0aea5;
@@ -43,8 +45,10 @@
     --bg-tertiary: #e8e6dc;
     --bg-card: #ffffff;
     --bg-card-hover: #fdfcfa;
-    --bg-nav: rgba(250, 249, 245, 0.65);
-    --bg-nav-scrolled: rgba(250, 249, 245, 0.85);
+    --bg-nav: rgba(250, 249, 245, 0.35);
+    --bg-nav-scrolled: rgba(250, 249, 245, 0.55);
+    --navbar-border: rgba(0, 0, 0, 0.06);
+    --navbar-border-hover: rgba(0, 0, 0, 0.12);
 
     --text-primary: #141413;
     --text-secondary: #5f5e5a;
@@ -75,7 +79,7 @@
     position: fixed;
     inset: 0;
     z-index: 9999;
-    background: #0a0a0a;
+    background: #1a1915;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -297,7 +301,7 @@ body {
     justify-content: space-between;
     padding: 14px 28px;
     background: var(--bg-nav);
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--navbar-border);
     border-radius: 16px;
     backdrop-filter: blur(12px) saturate(160%);
     -webkit-backdrop-filter: blur(12px) saturate(160%);
@@ -310,7 +314,7 @@ body {
     padding: 10px 24px;
     background: var(--bg-nav-scrolled);
     box-shadow: var(--shadow-lg), inset 0 1px 1px rgba(255, 255, 255, 0.05);
-    border-color: var(--border-hover);
+    border-color: var(--navbar-border-hover);
 }
 
 .nav-logo {
@@ -652,8 +656,8 @@ body {
     background: rgba(255, 255, 255, 0.08);
     border-color: rgba(255, 255, 255, 0.22);
     color: #f4ecf9;
-    backdrop-filter: blur(10px) saturate(140%);
-    -webkit-backdrop-filter: blur(10px) saturate(140%);
+    backdrop-filter: blur(6px) saturate(120%);
+    -webkit-backdrop-filter: blur(6px) saturate(120%);
 }
 
 .hero .title-line {
@@ -673,8 +677,8 @@ body {
     background: rgba(255, 255, 255, 0.07);
     border-color: rgba(255, 255, 255, 0.2);
     color: #f1e7f8;
-    backdrop-filter: blur(10px) saturate(140%);
-    -webkit-backdrop-filter: blur(10px) saturate(140%);
+    backdrop-filter: blur(6px) saturate(120%);
+    -webkit-backdrop-filter: blur(6px) saturate(120%);
 }
 
 .hero .btn-outline {
@@ -699,8 +703,8 @@ body {
 .hero .character-card {
     background: rgba(255, 255, 255, 0.07);
     border-color: rgba(255, 255, 255, 0.18);
-    backdrop-filter: blur(16px) saturate(150%);
-    -webkit-backdrop-filter: blur(16px) saturate(150%);
+    backdrop-filter: blur(8px) saturate(130%);
+    -webkit-backdrop-filter: blur(8px) saturate(130%);
     box-shadow: 0 20px 50px rgba(10, 5, 20, 0.4);
 }
 
