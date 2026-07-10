@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <filter id="neon-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1.2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#df96dc" />
+      <stop offset="50%" stop-color="#d483d0" />
+      <stop offset="100%" stop-color="#7daad6" />
+    </linearGradient>
+  </defs>
+  <!-- Orbit Ring (Droid radar style) -->
+  <circle cx="16" cy="16" r="13" fill="none" stroke="url(#grad)" stroke-width="1" stroke-dasharray="3 2" opacity="0.5" transform="rotate(45 16 16)"/>
+  <circle cx="16" cy="16" r="10" fill="none" stroke="url(#grad)" stroke-width="0.8" opacity="0.3"/>
+  <!-- Droid Nodes -->
+  <circle cx="16" cy="3" r="1.5" fill="#df96dc" filter="url(#neon-glow)"/>
+  <circle cx="16" cy="29" r="1.5" fill="#7daad6" filter="url(#neon-glow)"/>
+  <!-- Glowing Celestial Star -->
+  <path d="M16 5 C16 12 12 16 5 16 C12 16 16 20 16 27 C16 20 20 16 27 16 C20 16 16 12 16 5 Z" fill="url(#grad)" filter="url(#neon-glow)"/>
+  <!-- Inner core star highlight -->
+  <path d="M16 10 C16 14 14 16 10 16 C14 16 16 18 16 22 C16 18 18 16 22 16 C18 16 16 14 16 10 Z" fill="#ffffff" opacity="0.9"/>
+</svg>
