@@ -8,7 +8,8 @@
     --bg-tertiary: #2a2924;
     --bg-card: #24231f;
     --bg-card-hover: #2e2d28;
-    --bg-nav: rgba(26, 25, 21, 0.97);
+    --bg-nav: rgba(26, 25, 21, 0.65);
+    --bg-nav-scrolled: rgba(26, 25, 21, 0.85);
 
     --text-primary: #faf9f5;
     --text-secondary: #b0aea5;
@@ -42,7 +43,8 @@
     --bg-tertiary: #e8e6dc;
     --bg-card: #ffffff;
     --bg-card-hover: #fdfcfa;
-    --bg-nav: rgba(250, 249, 245, 0.97);
+    --bg-nav: rgba(250, 249, 245, 0.65);
+    --bg-nav-scrolled: rgba(250, 249, 245, 0.85);
 
     --text-primary: #141413;
     --text-secondary: #5f5e5a;
@@ -284,22 +286,31 @@ body {
 /* ===== Navigation ===== */
 .navbar {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 1100px;
     z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px 40px;
+    padding: 14px 28px;
     background: var(--bg-nav);
-    border-bottom: 1px solid var(--border-color);
-    transition: padding 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    backdrop-filter: blur(12px) saturate(160%);
+    -webkit-backdrop-filter: blur(12px) saturate(160%);
+    transition: top 0.3s ease, padding 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.05);
 }
 
 .navbar.scrolled {
-    padding: 12px 40px;
-    box-shadow: var(--shadow-md);
+    top: 12px;
+    padding: 10px 24px;
+    background: var(--bg-nav-scrolled);
+    box-shadow: var(--shadow-lg), inset 0 1px 1px rgba(255, 255, 255, 0.05);
+    border-color: var(--border-hover);
 }
 
 .nav-logo {
@@ -376,8 +387,18 @@ body {
 
 .theme-icon {
     position: absolute;
-    font-size: 18px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.theme-icon svg {
+    width: 20px;
+    height: 20px;
+    display: block;
 }
 
 .theme-icon.moon {
@@ -1334,7 +1355,7 @@ body {
     margin-bottom: 16px;
 }
 
-.donation-emoji-icon {
+.donation-logo-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1343,12 +1364,20 @@ body {
     border-radius: 12px;
     background: var(--bg-tertiary);
     border: 1px solid var(--border-color);
-    font-size: 20px;
+    overflow: hidden;
     transition: all 0.2s ease;
+    flex-shrink: 0;
 }
 
-.donation-main-card:hover .donation-emoji-icon {
+.donation-main-card:hover .donation-logo-wrapper {
     border-color: var(--border-hover);
+}
+
+.donation-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 6px;
 }
 
 .donation-brand h4 {
@@ -1770,6 +1799,10 @@ body {
         padding: 12px 16px;
     }
 
+    .navbar.scrolled {
+        padding: 8px 16px;
+    }
+
     .logo-text {
         font-size: 16px;
         letter-spacing: 2px;
@@ -1945,4 +1978,35 @@ body {
         flex-direction: column;
         align-items: center;
     }
+}
+
+/* ===== SVG Icon Utilities ===== */
+.tag-svg {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.stat-svg {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.project-cat-svg {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.footer-heart-svg {
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    vertical-align: middle;
+    color: var(--accent-primary);
+    margin: 0 2px;
 }
