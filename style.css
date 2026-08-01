@@ -289,6 +289,57 @@ body {
     color: white;
 }
 
+/* ===== Shared Surface Primitives =====
+   Grouped rules for the patterns repeated across cards, tiles and pills.
+   Individual rules below refine spacing and sizing only. */
+
+/* Raised card surfaces */
+.character-card,
+.about-text-card,
+.project-card,
+.donation-hub-container,
+.contact-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+}
+
+/* Inset tiles sitting inside a card or section */
+.section-tag,
+.donation-hub-tag,
+.stat-item,
+.tech-tag,
+.donation-main-card,
+.social-icon-wrapper,
+.contact-social-btn {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+}
+
+/* Pill-shaped labels */
+.hero-badge,
+.tag,
+.section-tag,
+.donation-hub-tag {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    font-size: 13px;
+}
+
+/* Hover state shared by every interactive surface */
+.character-card:hover,
+.about-image-card:hover,
+.project-card:hover,
+.stat-item:hover,
+.donation-main-card:hover,
+.donation-main-card:hover .donation-logo-wrapper,
+.social-card:hover,
+.social-card:hover .social-icon-wrapper {
+    border-color: var(--border-hover);
+}
+
 /* ===== Navigation ===== */
 .navbar {
     position: fixed;
@@ -668,7 +719,8 @@ body {
 }
 
 /* ── Glass styling for content sitting on the photo ── */
-.hero .hero-badge {
+.hero .hero-badge,
+.hero .tag {
     background: rgba(255, 255, 255, 0.04);
     border-color: rgba(255, 255, 255, 0.12);
     color: var(--text-primary);
@@ -687,14 +739,6 @@ body {
 
 .hero .hero-subtitle {
     color: var(--text-muted);
-}
-
-.hero .tag {
-    background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(255, 255, 255, 0.12);
-    color: var(--text-primary);
-    backdrop-filter: blur(10px) saturate(140%);
-    -webkit-backdrop-filter: blur(10px) saturate(140%);
 }
 
 .hero .btn-outline {
@@ -787,14 +831,9 @@ body {
 }
 
 .hero-badge {
-    display: inline-flex;
-    align-items: center;
     gap: 8px;
     padding: 8px 20px;
     background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 50px;
-    font-size: 13px;
     font-weight: 500;
     color: var(--text-secondary);
     margin-bottom: 32px;
@@ -841,14 +880,9 @@ body {
 }
 
 .tag {
-    display: inline-flex;
-    align-items: center;
     gap: 8px;
     padding: 10px 20px;
     background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 50px;
-    font-size: 13px;
     font-weight: 500;
     color: var(--text-secondary);
 }
@@ -924,9 +958,6 @@ body {
 .character-card {
     width: 280px;
     margin: 0 auto;
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
     padding: 20px;
     transition: all 0.3s ease;
     animation: fadeInUp 0.8s ease 0.6s forwards;
@@ -936,7 +967,6 @@ body {
 
 .character-card:hover {
     transform: translateY(-4px);
-    border-color: var(--border-hover);
     box-shadow: var(--shadow-lg);
 }
 
@@ -1006,12 +1036,7 @@ body {
 }
 
 .section-tag {
-    display: inline-block;
     padding: 6px 16px;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: 50px;
-    font-size: 13px;
     font-weight: 500;
     color: var(--accent-primary);
     margin-bottom: 16px;
@@ -1043,7 +1068,6 @@ body {
 }
 
 .about-image-card:hover {
-    border-color: var(--border-hover);
     box-shadow: var(--shadow-md);
     transform: translateY(-2px);
 }
@@ -1080,9 +1104,6 @@ body {
 }
 
 .about-text-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
     padding: 40px;
 }
 
@@ -1117,14 +1138,11 @@ body {
     align-items: center;
     gap: 10px;
     padding: 14px;
-    background: var(--bg-secondary);
     border-radius: 12px;
-    border: 1px solid var(--border-color);
     transition: all 0.2s ease;
 }
 
 .stat-item:hover {
-    border-color: var(--border-hover);
     transform: translateY(-1px);
 }
 
@@ -1166,9 +1184,6 @@ body {
 }
 
 .project-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     display: flex;
@@ -1180,7 +1195,6 @@ body {
 }
 
 .project-card:hover {
-    border-color: var(--border-hover);
     box-shadow: var(--shadow-lg);
     transform: translateY(-6px);
 }
@@ -1202,6 +1216,12 @@ body {
     background: rgba(212, 131, 208, 0.15); /* matching --accent-primary */
     color: var(--accent-primary);
     border: 1px solid rgba(212, 131, 208, 0.3);
+}
+
+.project-status-badge.ai {
+    background: rgba(143, 166, 112, 0.15);
+    color: var(--accent-green);
+    border: 1px solid rgba(143, 166, 112, 0.3);
 }
 
 .project-info {
@@ -1255,8 +1275,6 @@ body {
 
 .tech-tag {
     padding: 6px 12px;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
     border-radius: 6px;
     font-size: 12px;
     font-weight: 500;
@@ -1265,6 +1283,9 @@ body {
 
 .project-buttons {
     margin-top: auto;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
 .project-btn {
@@ -1273,9 +1294,6 @@ body {
 
 /* ===== Donation & Support Hub ===== */
 .donation-hub-container {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
     padding: 40px;
     margin-bottom: 48px;
     box-shadow: none;
@@ -1287,14 +1305,8 @@ body {
 }
 
 .donation-hub-tag {
-    display: inline-flex;
-    align-items: center;
     gap: 6px;
     padding: 6px 16px;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: 50px;
-    font-size: 13px;
     font-weight: 600;
     color: var(--accent-primary);
     margin-bottom: 12px;
@@ -1328,8 +1340,6 @@ body {
     display: block;
     text-decoration: none;
     color: var(--text-primary);
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
     border-radius: 12px;
     padding: 28px;
     transition: all 0.2s ease;
@@ -1339,7 +1349,6 @@ body {
 
 .donation-main-card:hover {
     transform: translateY(-3px);
-    border-color: var(--border-hover);
     box-shadow: var(--shadow-md);
 }
 
@@ -1390,10 +1399,6 @@ body {
     overflow: hidden;
     transition: all 0.2s ease;
     flex-shrink: 0;
-}
-
-.donation-main-card:hover .donation-logo-wrapper {
-    border-color: var(--border-hover);
 }
 
 .donation-logo-img {
@@ -1510,7 +1515,6 @@ body {
 }
 
 .social-card:hover {
-    border-color: var(--border-hover);
     transform: translateY(-2px);
     box-shadow: var(--shadow-sm);
 }
@@ -1521,15 +1525,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--bg-secondary);
     border-radius: 12px;
     flex-shrink: 0;
-    border: 1px solid var(--border-color);
     transition: all 0.2s ease;
-}
-
-.social-card:hover .social-icon-wrapper {
-    border-color: var(--border-hover);
 }
 
 .social-svg {
@@ -1597,9 +1595,6 @@ body {
     position: relative;
     max-width: 700px;
     margin: 0 auto;
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
     padding: 60px 50px;
     text-align: center;
 }
@@ -1625,8 +1620,6 @@ body {
     width: 48px;
     height: 48px;
     border-radius: 12px;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
     color: var(--text-secondary);
     text-decoration: none;
     transition: all 0.2s ease;
@@ -2012,32 +2005,32 @@ body {
 }
 
 /* ===== SVG Icon Utilities ===== */
-.tag-svg {
-    width: 16px;
-    height: 16px;
+.tag-svg,
+.stat-svg,
+.project-cat-svg,
+.footer-heart-svg {
     display: inline-block;
     vertical-align: middle;
+    width: 16px;
+    height: 16px;
 }
 
 .stat-svg {
     width: 24px;
     height: 24px;
-    display: inline-block;
-    vertical-align: middle;
 }
 
-.project-cat-svg {
-    width: 16px;
-    height: 16px;
-    display: inline-block;
-    vertical-align: middle;
+.heart-svg {
+    color: var(--accent-primary);
+}
+
+.bolt-svg {
+    color: #f1c40f;
 }
 
 .footer-heart-svg {
     width: 14px;
     height: 14px;
-    display: inline-block;
-    vertical-align: middle;
     color: var(--accent-primary);
     margin: 0 2px;
 }

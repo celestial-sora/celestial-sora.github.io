@@ -3,16 +3,67 @@
    Clean Interactive JavaScript
    =========================== */
 
-document.addEventListener('DOMContentLoaded', () => {
+/* ===== Shared Utilities ===== */
 
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/** Lock or release page scrolling. */
+function setBodyScrollLock(locked) {
+    document.body.style.overflow = locked ? 'hidden' : '';
+}
+
+/** Toggle a class on every element of a list. */
+function setClass(elements, className, on) {
+    elements.forEach(el => el && el.classList.toggle(className, on));
+}
+
+/**
+ * Fade the loading screen out and remove it from the DOM.
+ * @param {HTMLElement} screen
+ * @param {{ delay?: number, fadeDuration?: number }} options
+ */
+function dismissLoadingScreen(screen, { delay = 0, fadeDuration = 300 } = {}) {
+    setTimeout(() => {
+        screen.classList.add('done');
+        setTimeout(() => {
+            screen.classList.add('hidden');
+            setBodyScrollLock(false);
+            screen.addEventListener('transitionend', () => screen.remove(), { once: true });
+        }, fadeDuration);
+    }, delay);
+}
+
+/** Run a callback on scroll, throttled to one call per animation frame. */
+function onScrollFrame(callback) {
+    let ticking = false;
+
+    window.addEventListener('scroll', () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+            callback();
+            ticking = false;
+        });
+    }, { passive: true });
+}
+
+/** Smoothly scroll to an element id, leaving room for the fixed navbar. */
+function scrollToSection(id, offset = 80) {
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({ top, behavior: 'smooth' });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
 
     // ===== Loading Screen (Terminal Typewriter) =====
     const loadingScreen = document.getElementById('loadingScreen');
     const terminalBody = document.getElementById('terminalBody');
 
     if (loadingScreen && terminalBody && !prefersReducedMotion) {
-        document.body.style.overflow = 'hidden';
+        setBodyScrollLock(true);
 
         // Typewriter effect
         const lines = [
@@ -22,6 +73,13 @@ document.addEventListener('DOMContentLoaded', () => {
             { type: 'ready', text: 'ready..._' }
         ];
 
+        const lineSpanClass = {
+            'prompt': 'terminal-prompt',
+            'output': 'terminal-text',
+            'output-ok': 'terminal-ok',
+            'ready': 'terminal-text'
+        };
+
         let currentLineIdx = 0;
         let currentCharIdx = 0;
         const typewriterSpeed = 40; // ms per character
@@ -29,16 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
         function typeNextChar() {
             if (currentLineIdx >= lines.length) {
                 // All done, start exit after delay
-                setTimeout(() => {
-                    loadingScreen.classList.add('done');
-                    setTimeout(() => {
-                        loadingScreen.classList.add('hidden');
-                        document.body.style.overflow = '';
-                        loadingScreen.addEventListener('transitionend', () => {
-                            loadingScreen.remove();
-                        }, { once: true });
-                    }, 300);
-                }, 400);
+                dismissLoadingScreen(loadingScreen, { delay: 400 });
                 return;
             }
 
@@ -51,65 +100,42 @@ document.addEventListener('DOMContentLoaded', () => {
                 lineEl = document.createElement('div');
                 lineEl.className = 'terminal-line';
                 lineEl.setAttribute('data-line', currentLineIdx);
-                
-                if (line.type === 'prompt') {
-                    lineEl.innerHTML = `<span class="terminal-prompt"></span>`;
-                } else if (line.type === 'output') {
-                    lineEl.innerHTML = `<span class="terminal-text"></span>`;
-                } else if (line.type === 'output-ok') {
-                    lineEl.innerHTML = `<span class="terminal-ok"></span>`;
-                } else if (line.type === 'ready') {
-                    lineEl.innerHTML = `<span class="terminal-text"></span>`;
-                }
-                
+
+                const span = document.createElement('span');
+                span.className = lineSpanClass[line.type];
+                lineEl.appendChild(span);
+
                 terminalBody.appendChild(lineEl);
             }
 
             const span = lineEl.querySelector('span');
-            
+
             if (currentCharIdx < textToType.length) {
                 // Type one character
                 span.textContent += textToType[currentCharIdx];
                 currentCharIdx++;
                 setTimeout(typeNextChar, typewriterSpeed);
+            } else if (line.type === 'ready') {
+                // Add cursor after "ready..."
+                const cursor = document.createElement('span');
+                cursor.className = 'cursor';
+                span.appendChild(cursor);
+
+                // Exit after showing cursor
+                dismissLoadingScreen(loadingScreen, { delay: 800 });
             } else {
-                // Line done
-                if (line.type === 'output-ok') {
-                    // Add cursor to ready line
-                    currentLineIdx++;
-                    currentCharIdx = 0;
-                    setTimeout(typeNextChar, 200);
-                } else if (line.type === 'ready') {
-                    // Add cursor after "ready..."
-                    const cursor = document.createElement('span');
-                    cursor.className = 'cursor';
-                    span.appendChild(cursor);
-                    
-                    // Exit after showing cursor
-                    setTimeout(() => {
-                        loadingScreen.classList.add('done');
-                        setTimeout(() => {
-                            loadingScreen.classList.add('hidden');
-                            document.body.style.overflow = '';
-                            loadingScreen.addEventListener('transitionend', () => {
-                                loadingScreen.remove();
-                            }, { once: true });
-                        }, 300);
-                    }, 800);
-                } else {
-                    // Move to next line
-                    currentLineIdx++;
-                    currentCharIdx = 0;
-                    setTimeout(typeNextChar, 150);
-                }
+                // Move to next line
+                currentLineIdx++;
+                currentCharIdx = 0;
+                setTimeout(typeNextChar, line.type === 'output-ok' ? 200 : 150);
             }
         }
 
         typeNextChar();
     } else if (loadingScreen && terminalBody && prefersReducedMotion) {
         // Reduced motion: show everything at once, quick fade
-        document.body.style.overflow = 'hidden';
-        
+        setBodyScrollLock(true);
+
         terminalBody.innerHTML = `
             <div class="terminal-line">
                 <span class="terminal-prompt">> npx sora --awaken</span>
@@ -122,29 +148,11 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         `;
 
-        setTimeout(() => {
-            loadingScreen.classList.add('done');
-            setTimeout(() => {
-                loadingScreen.classList.add('hidden');
-                document.body.style.overflow = '';
-                loadingScreen.addEventListener('transitionend', () => {
-                    loadingScreen.remove();
-                }, { once: true });
-            }, 200);
-        }, 600);
+        dismissLoadingScreen(loadingScreen, { delay: 600, fadeDuration: 200 });
     } else if (loadingScreen) {
         // Fallback: just fade out
-        document.body.style.overflow = 'hidden';
-        setTimeout(() => {
-            loadingScreen.classList.add('done');
-            setTimeout(() => {
-                loadingScreen.classList.add('hidden');
-                document.body.style.overflow = '';
-                loadingScreen.addEventListener('transitionend', () => {
-                    loadingScreen.remove();
-                }, { once: true });
-            }, 300);
-        }, 1000);
+        setBodyScrollLock(true);
+        dismissLoadingScreen(loadingScreen, { delay: 1000 });
     }
 
 
@@ -170,25 +178,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileOverlay = document.getElementById('mobileMenuOverlay');
     const scrollTopBtn = document.getElementById('scrollTopBtn');
 
-    // Scroll effects
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-
-        if (currentScroll > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-
-        if (currentScroll > 500) {
-            scrollTopBtn.classList.add('visible');
-        } else {
-            scrollTopBtn.classList.remove('visible');
-        }
-
-        updateActiveSection();
-    });
-
     scrollTopBtn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
@@ -206,10 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (scrollPosition >= top && scrollPosition < bottom) {
                     navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('data-section') === section) {
-                            link.classList.add('active');
-                        }
+                        link.classList.toggle('active', link.getAttribute('data-section') === section);
                     });
                 }
             }
@@ -217,31 +203,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Mobile menu
+    function setMobileMenu(open) {
+        setClass([hamburger, mobileOverlay], 'active', open);
+        setBodyScrollLock(open);
+    }
+
     hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        mobileOverlay.classList.toggle('active');
-        document.body.style.overflow = mobileOverlay.classList.contains('active') ? 'hidden' : '';
+        setMobileMenu(!mobileOverlay.classList.contains('active'));
     });
 
     mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            mobileOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        });
+        link.addEventListener('click', () => setMobileMenu(false));
     });
 
     // Smooth scroll for nav links
     [...navLinks, ...mobileLinks].forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
-            const targetId = link.getAttribute('href').slice(1);
-            const target = document.getElementById(targetId);
-            if (target) {
-                const offset = 80;
-                const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
-                window.scrollTo({ top, behavior: 'smooth' });
-            }
+            scrollToSection(link.getAttribute('href').slice(1));
         });
     });
 
@@ -269,8 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const gridContainers = document.querySelectorAll('.projects-grid, .social-grid');
 
     gridContainers.forEach(grid => {
-        const children = grid.children;
-        Array.from(children).forEach((child, index) => {
+        Array.from(grid.children).forEach((child, index) => {
             child.style.transitionDelay = `${index * 0.08}s`;
         });
     });
@@ -306,10 +284,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroContent = document.querySelector('.hero-content');
     const heroSection = document.querySelector('.hero');
     const heroBgLayer = document.getElementById('heroBgLayer');
-    let heroTicking = false;
 
     function updateHeroParallax() {
-        if (!heroSection) { heroTicking = false; return; }
+        if (!heroSection) return;
 
         const scrolled = window.pageYOffset;
         const heroHeight = heroSection.offsetHeight;
@@ -323,15 +300,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 heroBgLayer.style.transform = `translate3d(0, ${scrolled * 0.12}px, 0)`;
             }
         }
-        heroTicking = false;
     }
 
-    window.addEventListener('scroll', () => {
-        if (!heroTicking) {
-            requestAnimationFrame(updateHeroParallax);
-            heroTicking = true;
-        }
-    }, { passive: true });
+    // ===== Scroll Effects =====
+    onScrollFrame(() => {
+        const currentScroll = window.pageYOffset;
+
+        navbar.classList.toggle('scrolled', currentScroll > 50);
+        scrollTopBtn.classList.toggle('visible', currentScroll > 500);
+
+        updateActiveSection();
+        updateHeroParallax();
+    });
 
     // ===== Init =====
     updateActiveSection();
