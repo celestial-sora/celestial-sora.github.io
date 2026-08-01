@@ -1,0 +1,21 @@
+{
+  "name": "celestial-sora.github.io",
+  "version": "1.0.0",
+  "description": "Sora Tempest portfolio site",
+  "private": true,
+  "type": "module",
+  "main": "script.js",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "coverage": "vitest run --coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@vitest/coverage-v8": "^2.1.9",
+    "jsdom": "^25.0.1",
+    "vitest": "^2.1.9"
+  }
+}
