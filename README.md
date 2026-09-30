@@ -1,1 +1,67 @@
-Dont't README.md
+# Hi, I'm Sora
+
+I build AI companions and story worlds, with a soft spot for thoughtful interfaces.
+
+### Featured projects
+
+- [Oonchai / Sekaira](https://oonchai.vercel.app/) — an AI roleplay platform for creating characters and exploring stories. [Source](https://github.com/celestial-sora/sekaira)
+- [Vivian](https://github.com/celestial-sora/ai-waifu) — an AI companion with Live2D, memory, voice, and vision.
+- [Portfolio](https://celestial-sora.vercel.app/) — more of my work and ways to find me.
+
+---
+
+<p align="center">
+  <b>Languages/framework</b>
+</p>
+<p align="center">
+  <img src="https://cdn.simpleicons.org/python" width="40" height="40" alt="Python" />
+  &nbsp;&nbsp;
+  <img src="https://cdn.simpleicons.org/astro" width="40" height="40" alt="Astro" />
+  &nbsp;&nbsp;
+  <img src="https://cdn.simpleicons.org/html5" width="40" height="40" alt="HTML5" />
+  &nbsp;&nbsp;
+  <img src="https://cdn.simpleicons.org/css" width="40" height="40" alt="CSS" />
+  &nbsp;&nbsp;
+  <img src="https://cdn.simpleicons.org/javascript" width="40" height="40" alt="JavaScript" />
+  &nbsp;&nbsp;
+  <img src="https://cdn.simpleicons.org/typescript" width="40" height="40" alt="TypeScript" />
+</p>
+
+<br />
+
+<p align="center">
+  <b>AI, IDE & Tools</b>
+</p>
+<p align="center">
+  <img src="https://cdn.simpleicons.org/claude" width="40" height="40" alt="Claude" />
+  &nbsp;&nbsp;
+  <img src="assets/icons/antigravity-logo.svg" width="40" height="40" alt="AntiGravity" />
+  &nbsp;&nbsp;
+  <img src="assets/icons/codex.svg" width="40" height="40" alt="OpenAI Codex" />
+  &nbsp;&nbsp;
+  <img src="https://unpkg.com/@lobehub/icons-static-svg@latest/icons/cursor.svg" width="40" height="40" alt="Cursor" />
+  &nbsp;&nbsp;
+  <img src="https://cdn.simpleicons.org/googlegemini" width="40" height="40" alt="Gemini" />
+  &nbsp;&nbsp;
+  <img src="assets/icons/vscode-blue.svg" width="40" height="40" alt="VS Code" />
+  &nbsp;&nbsp;
+  <!-- Responsive GitHub icon (dark-mode aware) -->
+  <img src="https://cdn.simpleicons.org/github/181717/ffffff" width="40" height="40" alt="GitHub" />
+</p>
+
+<br />
+
+<p align="center">
+  <b>Hosting & Services</b>
+</p>
+<p align="center">
+  <!-- Responsive Vercel icon (dark-mode aware) -->
+  <img src="https://cdn.simpleicons.org/vercel/000000/ffffff" width="40" height="40" alt="Vercel" />
+  &nbsp;&nbsp;
+  <img src="https://cdn.simpleicons.org/supabase" width="40" height="40" alt="Supabase" />
+  &nbsp;&nbsp;
+  <!-- Responsive Railway icon (dark-mode aware) -->
+  <img src="https://cdn.simpleicons.org/railway/181717/ffffff" width="40" height="40" alt="Railway" />
+  &nbsp;&nbsp;
+  <img src="assets/icons/localhost.svg" width="40" height="40" alt="Localhost" />
+</p>
