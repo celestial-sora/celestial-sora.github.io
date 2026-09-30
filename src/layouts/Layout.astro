@@ -30,5 +30,12 @@ const {
 	</head>
 	<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] min-h-screen font-heading antialiased transition-colors duration-300">
 		<slot />
+		<script is:inline>
+			document.querySelectorAll('img[src^="/"]').forEach((image) => {
+				const asset = new URL(image.getAttribute('src') || '', window.location.href);
+				asset.searchParams.set('v', 'cc6b3a1');
+				image.src = asset.href;
+			});
+		</script>
 	</body>
 </html>
