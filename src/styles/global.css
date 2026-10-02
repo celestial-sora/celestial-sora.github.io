@@ -311,7 +311,8 @@ body {
 
 /* ===== Sora Editorial System ===== */
 :root {
-  --page-width: 1120px;
+  --page-width: 1440px;
+  --page-gutter: clamp(24px, 3vw, 48px);
   --hairline: rgba(72, 69, 63, 0.12);
   --surface: rgba(250, 249, 245, 0.74);
   --surface-strong: rgba(250, 249, 245, 0.94);
@@ -372,7 +373,7 @@ h1, h2, h3, .brand-mark, .button, .eyebrow, .card-kicker { font-family: 'Inter',
 .menu-button span { width: 16px; height: 1.5px; background: currentColor; }
 .theme-toggle:active, .menu-button:active, .button:active, .text-button:active { transform: scale(.96); }
 
-.section-shell { width: min(calc(100% - 48px), var(--page-width)); margin: 0 auto; padding: 132px 0; }
+.section-shell { width: min(calc(100% - 2 * var(--page-gutter)), var(--page-width)); margin: 0 auto; padding: 132px 0; }
 .section-heading { max-width: 700px; margin-bottom: 48px; }
 .section-heading--row { display: flex; justify-content: space-between; align-items: end; gap: 48px; max-width: none; }
 .section-heading--row > p { max-width: 290px; margin: 0 0 5px; color: var(--text-secondary); font-size: .94rem; line-height: 1.8; }
@@ -460,7 +461,7 @@ h1, h2, h3, .brand-mark, .button, .eyebrow, .card-kicker { font-family: 'Inter',
 .social-link small { margin-top: 3px; color: var(--text-muted); font-size: .75rem; }
 .social-link__arrow { margin-left: auto; color: var(--accent-pink); font-size: 1.2rem; }
 
-.site-footer { width: min(calc(100% - 48px), var(--page-width)); margin: 0 auto; padding: 28px 0 42px; border-top: 1px solid var(--hairline); display: flex; justify-content: space-between; align-items: center; color: var(--text-muted); font-size: .78rem; }
+.site-footer { width: min(calc(100% - 2 * var(--page-gutter)), var(--page-width)); margin: 0 auto; padding: 28px 0 42px; border-top: 1px solid var(--hairline); display: flex; justify-content: space-between; align-items: center; color: var(--text-muted); font-size: .78rem; }
 .site-footer div { display: flex; align-items: center; gap: 9px; color: var(--text-primary); letter-spacing: .12em; }
 .site-footer img { width: 22px; height: 22px; object-fit: contain; }
 .scroll-top { display: grid; place-items: center; padding: 0; position: fixed; z-index: 50; right: 24px; bottom: 24px; width: 42px; height: 42px; border: 1px solid var(--glass-border); border-radius: 14px; color: var(--text-primary); background: var(--surface-strong); box-shadow: 0 10px 30px rgba(111,75,77,.15); opacity: 0; visibility: hidden; cursor: pointer; transition: opacity 180ms ease, visibility 180ms ease, transform 180ms ease; }
@@ -477,6 +478,17 @@ h1, h2, h3, .brand-mark, .button, .eyebrow, .card-kicker { font-family: 'Inter',
 .mobile-menu__links { display: flex; flex-direction: column; gap: 8px; margin-top: 90px; }
 .mobile-link { display: flex; justify-content: space-between; padding: 17px 0; border-bottom: 1px solid var(--hairline); color: var(--text-primary); text-decoration: none; font-size: 1.7rem; }
 .mobile-link span { color: var(--accent-pink); font: .7rem 'IBM Plex Mono', monospace; }
+
+@media (min-width: 1200px) {
+  .section-heading { margin-bottom: 56px; }
+  .about-layout { grid-template-columns: minmax(0, 1.5fr) minmax(280px, .5fr); gap: 24px; }
+  .project-grid { gap: 24px; }
+}
+
+@media (min-width: 761px) and (max-width: 1100px) {
+  .about-layout { grid-template-columns: 1fr; }
+  .about-stats { grid-template-rows: none; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
 
 @media (max-width: 760px) {
   .site-nav { top: 12px; height: 54px; }
@@ -509,7 +521,7 @@ h1, h2, h3, .brand-mark, .button, .eyebrow, .card-kicker { font-family: 'Inter',
 /* File explorer navigation */
 .file-nav {
   position: fixed; z-index: 1000; top: 16px; left: 50%; transform: translateX(-50%);
-  width: min(calc(100% - 28px), 1120px); overflow: hidden; color: var(--text-primary);
+  width: min(calc(100% - 2 * var(--page-gutter)), var(--page-width)); overflow: hidden; color: var(--text-primary);
   border: 1px solid var(--glass-border); border-radius: 17px;
   background: var(--surface); box-shadow: 0 18px 50px rgba(20,20,19,.10), inset 0 1px 0 rgba(255,255,255,.55);
   backdrop-filter: blur(28px) saturate(125%); -webkit-backdrop-filter: blur(28px) saturate(125%);
